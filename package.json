@@ -1,0 +1,28 @@
+{
+  "name": "json_db",
+  "version": "1.0.0",
+  "description": "json db",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src/ --out-dir dist/ --presets=flow --ignore spec.js ",
+    "dev": "concurrently \"npm run build -- --watch\" \"nodemon dist/server.js\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "cors": "^2.8.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "concurrently": "^4.1.0",
+    "flow-bin": "^0.89.0",
+    "flow-remove-types": "^1.2.3",
+    "nodemon": "^1.18.9"
+  }
+}
