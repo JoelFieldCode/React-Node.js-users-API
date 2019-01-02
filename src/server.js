@@ -7,7 +7,7 @@ import { MongoClient } from 'mongodb';
 import mongoose from 'mongoose';
 
 import { DBURL } from '../secrets';
-import userRoutes from './user_routes';
+import userRoutes from './routes/user_routes';
 
 const app = express();
 const port = 8000;
