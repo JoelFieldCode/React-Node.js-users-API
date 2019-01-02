@@ -5,12 +5,14 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { MongoClient } from 'mongodb';
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
-import { DBURL } from '../secrets';
 import userRoutes from './routes/user_routes';
 
+dotenv.config();
 const app = express();
-const port = 8000;
+const port = process.env.PORT;
+const DBURL = process.env.DBURL;
 
 mongoose.connect(DBURL, () => {
   app.use(bodyParser.urlencoded({ extended: true }));
