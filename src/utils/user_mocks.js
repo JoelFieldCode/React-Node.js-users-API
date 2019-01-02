@@ -8,3 +8,8 @@ export const testUsers = [
     lastName: 'Smith'
   }
 ]
+
+export const mockUserSubmit = {
+  firstName: 'Gavin',
+  lastName: 'Belson'
+}

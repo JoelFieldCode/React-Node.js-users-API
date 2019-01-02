@@ -5,25 +5,25 @@ import { getUsers, addUser, updateUser, deleteUser } from '../repositories/users
 const registerRoutes = (app: any) => {
     app.get('/users', async (req, res) => {
         const users = await getUsers();
-        res.send(users);
+        res.json(users);
     });
 
     app.post('/user', async (req, res) => {
         try {
             const user = await addUser(req.body);
-            res.send(JSON.stringify(user));
+            res.json(user);
         } catch (err) {
-            res.send(JSON.stringify(err), 400);
+            res.json(err, 400);
         }
     });
 
     app.put('/user/:userId', async (req, res) => {
         try {
             const { userId } = req.params;
-            const user = await updateUser(userId, req.body);
-            res.send("Success");
+            await updateUser(userId, req.body);
+            res.json('Success');
         } catch (err) {
-            res.send(JSON.stringify(err), 400);
+            res.json(err, 400);
         }
     });
 
@@ -31,9 +31,9 @@ const registerRoutes = (app: any) => {
         try {
             const { userId } = req.params;
             await deleteUser(userId);
-            res.send(`Success`);
+            res.json('Success');
         } catch (err) {
-            res.send(JSON.stringify(err), 400);
+            res.json(err, 400);
         }
     });
 }
