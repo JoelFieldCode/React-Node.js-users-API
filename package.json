@@ -27,6 +27,7 @@
     "concurrently": "^4.1.0",
     "flow-bin": "0.78.0",
     "flow-remove-types": "^1.2.3",
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "supertest": "^3.3.0"
   }
 }
