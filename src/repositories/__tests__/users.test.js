@@ -21,3 +21,15 @@ test('creates user', () => {
   addUser(testUser);
   expect(User.create).toHaveBeenCalledWith(testUser);
 });
+
+test('updates user', () => {
+  updateUser(3, testUser);
+  expect(User.updateOne).toHaveBeenCalledWith({
+    _id: 3,
+  },testUser);
+});
+
+test('deletes user', () => {
+  deleteUser(3);
+  expect(User.deleteOne).toHaveBeenCalledWith({ _id: 3});
+});

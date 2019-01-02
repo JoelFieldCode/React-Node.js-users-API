@@ -9,43 +9,27 @@ const registerRoutes = (app: any) => {
     });
 
     app.post('/user', async (req, res) => {
-        const firstName = req.body.firstName;
-        const lastName = req.body.lastName;
-        const newUserData = {
-            firstName,
-            lastName
-        };
         try {
-            await addUser(newUserData);
-            res.send(
-                `User ${firstName} ${lastName} added!`
-            );
+            const user = await addUser(req.body);
+            res.send(JSON.stringify(user));
         } catch (err) {
             res.send(JSON.stringify(err), 400);
         }
     });
 
-    app.put('/user', async (req, res) => {
-        const firstName = req.body.firstName;
-        const lastName = req.body.lastName;
-        const userId = req.body.id;
-        const newUserData = {
-            firstName,
-            lastName
-        };
+    app.put('/user/:userId', async (req, res) => {
         try {
-            await updateUser(userId, newUserData);
-            res.send(
-                `User ${firstName} ${lastName} updated!`
-            );
+            const { userId } = req.params;
+            const user = await updateUser(userId, req.body);
+            res.send("Success");
         } catch (err) {
             res.send(JSON.stringify(err), 400);
         }
     });
 
-    app.delete('/user', async (req, res) => {
-        const userId = req.body.id;
+    app.delete('/user/:userId', async (req, res) => {
         try {
+            const { userId } = req.params;
             await deleteUser(userId);
             res.send(`Success`);
         } catch (err) {
