@@ -1,6 +1,5 @@
 // @flow
 import User, { UserData } from '../models/User';
-import mongoose from 'mongoose';
 
 export async function getUsers () {
   return await User.find({});
